@@ -27,8 +27,10 @@ public class NextPermutation {
       }
     }
     if (right == 0) {
+      // 如果不存在下一个更大的排列，那么这个数组必须重排为字典序最小的排列（即，其元素按升序排列）。
       bubbleSort(nums, -1);
     } else {
+      // 下一个字典序更大的排列
       int temp = nums[left];
       nums[left] = nums[right];
       nums[right] = temp;
