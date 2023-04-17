@@ -19,14 +19,14 @@ public class GenerateParenthesis {
     if (n == 1) {
       return Arrays.asList("()");
     }
-    Set<String> set=new HashSet<String>();
-    for (String i:generateParenthesis(n-1)){
-      for (int j=1;j<=i.length();j++){
-        String temp=i.substring(0,j)+"()"+i.substring(j,i.length());
+    Set<String> set = new HashSet<String>();
+    for (String i : generateParenthesis(n - 1)) {
+      for (int j = 1; j <= i.length(); j++) {
+        String temp = i.substring(0, j) + "()" + i.substring(j, i.length());
         set.add(temp);
       }
     }
-   return new ArrayList<>(set);
+    return new ArrayList<>(set);
   }
 
   public static void main(String[] args) {
