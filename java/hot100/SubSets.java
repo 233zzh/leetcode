@@ -30,28 +30,52 @@ public class SubSets {
     }
   }
 
-  // 枚举
-  // 逐个枚举，空集的子集只有空集，每增加一个元素，让之前子集中的每个集合，复制一份，追加这个元素，就是新增的子集。
+  // 动态规划，每一次都用到之前的所有状态
+  // 逐个枚举序列中的每个数字，空集的子集只有空集，每增加一个元素，让之前子集中的每个集合，复制一份，追加这个元素，就是新增的子集。
   public List<List<Integer>> subsets1(int[] nums) {
     List<List<Integer>> ans = new ArrayList<>();
     // 空集
     List<Integer> list = new ArrayList<>();
     ans.add(list);
     for (int num : nums) {
-      List<List<Integer>> newAns = new ArrayList<>();
-      for (List<Integer> oldSubSet : ans) {
+      int len = ans.size();
+      for (int i = 0; i < len; i++) {
+        List<Integer> oldSubSet = ans.get(i);
         List<Integer> newSubset = new ArrayList<>(oldSubSet);
         newSubset.add(num);
-        newAns.add(newSubset);
+        ans.add(newSubset);
       }
-      ans.addAll(newAns);
+    }
+    return ans;
+  }
+
+  // 迭代法实现子集枚举
+  // 官方题解
+  // https://leetcode.cn/problems/subsets/solution/zi-ji-by-leetcode-solution/
+  public List<List<Integer>> subsets2(int[] nums) {
+    List<List<Integer>> ans = new ArrayList<>();
+    List<Integer> list = new ArrayList<>();
+    int n = nums.length;
+    for (int mask = 0; mask < 1 << n; mask++) {
+      for (int j = 0; j < n; j++) {
+        if ((mask & 1 << j) != 0) {
+          list.add(nums[j]);
+        }
+      }
+      ans.add(new ArrayList<>(list));
+      list.clear();
     }
     return ans;
   }
 
   public static void main(String[] args) {
     int[] nums = new int[]{1, 2, 3};
-    List<List<Integer>> ans = new SubSets().subsets1(nums);
+    List<List<Integer>> ans = new SubSets().subsets2(nums);
     System.out.println(ans);
+
+    System.out.println(16 >> 2);
+    System.out.println(1 << 3);
+    System.out.println(7 & 3);
+    System.out.println(7 & 0);
   }
 }
