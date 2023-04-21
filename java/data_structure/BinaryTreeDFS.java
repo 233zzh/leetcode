@@ -10,12 +10,12 @@ import java.util.Stack;
  * @Blog https://zihao.blog.csdn.net/
  * @Date 2023/4/20 15:48
  */
-public class BinaryTree {
+public class BinaryTreeDFS {
 
   /**
    * 二叉树节点
    */
-  private static class TreeNode {
+  public static class TreeNode {
 
     int data;
     TreeNode leftChild;
