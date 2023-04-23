@@ -3,16 +3,19 @@ package data_structure;
 import java.util.Arrays;
 
 /**
- * @Description TODO
+ * @Description 最小二叉堆
+ * <p>二叉堆是实现堆排序及优先队列的基础<br/>
+ * <p>最大堆的任何一个父节点的值，都大于或等于它 左、右孩子节点的值。<br/>
+ * <p>最小堆的任何一个父节点的值，都小于或等于它 左、右孩子节点的值。<br/>
  * @Author 爱做梦的鱼
  * @Blog https://zihao.blog.csdn.net/
  * @Date 2023/4/23 16:44
  */
-public class BinaryHeap {
+public class MinBinaryHeap {
 
 
   /**
-   * <p>二叉堆，插入节点</br>
+   * <p>二叉堆，插入节点-递归实现</br>
    * <p>当二叉堆插入节点时，插入位置是完全二叉树的最后一个位置，之后进行自我调整</br>
    * <p>堆的插入操作是单一节点的“上浮”，堆的删除操作是单一节点的“下沉”，这两个操作的平均交换次数都是堆高度的一半，所以时间复杂度是O(logn)</br>
    *
@@ -29,7 +32,7 @@ public class BinaryHeap {
   }
 
   /**
-   * 上浮调整
+   * 上浮调整-递归实现
    *
    * @param heap
    * @param idx
@@ -44,8 +47,43 @@ public class BinaryHeap {
       int temp = heap[idx];
       heap[idx] = heap[parent];
       heap[parent] = temp;
+      upAdjust(heap, parent);
     }
-    upAdjust(heap, parent);
+  }
+
+  /**
+   * <p>二叉堆，插入节点-非递归实现</br>
+   * <p>当二叉堆插入节点时，插入位置是完全二叉树的最后一个位置，之后进行自我调整</br>
+   * <p>堆的插入操作是单一节点的“上浮”，堆的删除操作是单一节点的“下沉”，这两个操作的平均交换次数都是堆高度的一半，所以时间复杂度是O(logn)</br>
+   *
+   * @param heap
+   * @param num
+   * @return
+   */
+  public static int[] insertNodeNonRecursive(int[] heap, int num) {
+    int[] newHeap = new int[heap.length + 1];
+    System.arraycopy(heap, 0, newHeap, 0, heap.length);
+    newHeap[newHeap.length - 1] = num;
+    upAdjust(newHeap);
+    return newHeap;
+  }
+
+  /**
+   * 上浮调整-非递归实现
+   */
+  private static void upAdjust(int[] array) {
+    int childIndex = array.length - 1;
+    int parentIndex = (childIndex - 1) / 2;
+    // temp 保存插入的叶子节点值，用于最后的赋值
+    int temp = array[childIndex];
+    // 堆顶(child==0)，无父节点
+    while (childIndex > 0 && temp < array[parentIndex]) {
+      //无须真正交换，单向赋值即可
+      array[childIndex] = array[parentIndex];
+      childIndex = parentIndex;
+      parentIndex = (childIndex - 1) / 2;
+    }
+    array[childIndex] = temp;
   }
 
   /**
@@ -111,8 +149,14 @@ public class BinaryHeap {
 
 
   public static void main(String[] args) {
+    System.out.println("插入节点-递归实现");
     int[] heap = new int[]{1, 3, 2, 6, 5, 7, 8, 9, 10};
     int[] insertHeap = insertNode(heap, 0);
+    System.out.println(Arrays.toString(insertHeap));
+
+    System.out.println("插入节点-非递归实现");
+    heap = new int[]{1, 3, 2, 6, 5, 7, 8, 9, 10};
+    insertHeap = insertNodeNonRecursive(heap, 0);
     System.out.println(Arrays.toString(insertHeap));
 
     int[] deleteHeap = deleteNode(heap);
