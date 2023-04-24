@@ -30,7 +30,7 @@ public class BinaryTreeDFS {
   }
 
   /**
-   * 构建二叉树
+   * 构建二叉树-前序遍历
    *
    * @param inputList 输入的序列
    * @return
