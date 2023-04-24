@@ -5,7 +5,10 @@ import java.util.LinkedList;
 import java.util.Stack;
 
 /**
- * @Description 二叉树
+ * @Description 二叉树的深度优先遍历（前序遍历、中序遍历、后序遍历）
+ * <p>深度优先和广度优先这两个概念不止局限于二叉树，它们更是一种 抽象的算法思想，决定了访问某些复杂数据结构的顺序。
+ * 在访问树、 图，或其他一些复杂数据结构时，这两个概念常常被使用到。<br/>
+ * <p>所谓深度优先，顾名思义，就是偏向于纵深，“一头扎到底”的访问 方式。<br/>
  * @Author 爱做梦的鱼
  * @Blog https://zihao.blog.csdn.net/
  * @Date 2023/4/20 15:48
@@ -186,6 +189,12 @@ public class BinaryTreeDFS {
     inOrderTraversalWithStack(treeNode);
     System.out.println(" 后序遍历-非递归：");
     postOrderTraversalWithStack(treeNode);
+
+    System.out.println(" 层序遍历构建二叉树：");
+    inputList = new LinkedList<>(Arrays.asList(5, 1, 4, null, null, 3, 6));
+    TreeNode treeNode1 = BinaryTreeBFS.createBinaryTree(inputList);
+    System.out.println(" 前序遍历：");
+    preOrderTraversal(treeNode1);
   }
 
 }
