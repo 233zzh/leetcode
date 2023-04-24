@@ -1,4 +1,4 @@
-package hot100;
+package hot100.n_sum;
 
 import java.util.ArrayList;
 import java.util.Arrays;
