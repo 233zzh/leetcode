@@ -1,7 +1,7 @@
 package offer.delong;
 
 /**
- * @Description 给定两个字符串str1和str2,输出两个字符串的最长公共子串
+ * @Description 德胧集团面试，给定两个字符串str1和str2,输出两个字符串的最长公共子串
  * @Author 爱做梦的鱼
  * @Blog https://zihao.blog.csdn.net/
  * @Date 2023/5/5 19:41
