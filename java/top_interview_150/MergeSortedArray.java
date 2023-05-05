@@ -1,4 +1,4 @@
-package leetcode.other;
+package top_interview_150;
 
 import java.util.Arrays;
 
