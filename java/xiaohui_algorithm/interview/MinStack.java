@@ -1,6 +1,5 @@
-package data_structure;
+package xiaohui_algorithm.interview;
 
-import java.util.EmptyStackException;
 import java.util.Stack;
 
 /**

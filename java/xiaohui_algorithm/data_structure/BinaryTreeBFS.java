@@ -1,6 +1,6 @@
-package data_structure;
+package xiaohui_algorithm.data_structure;
 
-import data_structure.BinaryTreeDFS.TreeNode;
+import xiaohui_algorithm.data_structure.BinaryTreeDFS.TreeNode;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;

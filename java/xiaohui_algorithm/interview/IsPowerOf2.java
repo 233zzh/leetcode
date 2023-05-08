@@ -1,4 +1,4 @@
-package data_structure;
+package xiaohui_algorithm.interview;
 
 /**
  * @Description 如何判断一个数是否为2的整数次幂

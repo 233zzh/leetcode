@@ -1,4 +1,4 @@
-package data_structure;
+package xiaohui_algorithm.interview;
 
 /**
  * @Description 求取最大公约数

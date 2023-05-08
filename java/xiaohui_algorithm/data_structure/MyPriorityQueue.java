@@ -1,4 +1,4 @@
-package data_structure;
+package xiaohui_algorithm.data_structure;
 
 import java.util.Arrays;
 
