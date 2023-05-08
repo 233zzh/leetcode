@@ -15,14 +15,17 @@ public class NextPermutation {
   // 3.对逆序区域（>=idx）进行排序
   // 12345->12354   12354->12453->12435
   public static void getNextPermutation(int[] nums) {
+    //1. 从后向前查看逆序区域，找到逆序区域的前一位，也就是数字置换的边界
     int idx = findTransferPoint(nums);
     // 54321，没有比他还大的排列了
     if (idx == -1) {
       return;
     }
 
+    //2.把逆序区域的前一位和逆序区域中刚刚大于它的数字交换位置
     exchange(nums, idx);
 
+    //3.把原来的逆序区域转为顺序
     reverse(nums, idx);
   }
 
