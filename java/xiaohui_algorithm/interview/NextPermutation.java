@@ -10,6 +10,7 @@ import java.util.Arrays;
  */
 public class NextPermutation {
 
+  // 字典序算法
   // 1.从右往左找到逆序区域，即找到第一个大于前面元素的位置，idx位置，idx位置的元素大于idx-1位置的元素
   // 2.位置idx-1位置的元素和>=idx中的较小的元素交换
   // 3.对逆序区域（>=idx）进行排序
