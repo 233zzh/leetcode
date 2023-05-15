@@ -1,4 +1,4 @@
-package zuochengyun;
+package zuochengyun.stack_queue;
 
 import java.util.Stack;
 
@@ -10,8 +10,13 @@ import java.util.Stack;
  */
 public class MinStack {
 
-  Stack<Integer> stack = new Stack<>();
-  Stack<Integer> minStack = new Stack<>();
+  private final Stack<Integer> stack;
+  private final Stack<Integer> minStack;
+
+  public MinStack() {
+    stack = new Stack<>();
+    minStack = new Stack<>();
+  }
 
   public void push(int data) {
     if (minStack.isEmpty() || minStack.peek() >= data) {
@@ -31,12 +36,22 @@ public class MinStack {
     return minStack.peek();
   }
 
+  @Override
+  public String toString() {
+    return "MinStack{" +
+        "stack=" + stack +
+        ", minStack=" + minStack +
+        '}';
+  }
+
   public static void main(String[] args) {
     MinStack minStack = new MinStack();
     int[] nums = new int[]{10, 6, 7, 8, 4, 3, 9, 6};
     for (int i : nums) {
       minStack.push(i);
-      System.out.println(minStack.getMin());
+      System.out.print(minStack.getMin() + " ");
     }
+    System.out.println();
+    System.out.println(minStack);
   }
 }
