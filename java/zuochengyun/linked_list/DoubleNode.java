@@ -1,4 +1,4 @@
-package zuochengyun.linkedlist;
+package zuochengyun.linked_list;
 
 /**
  * @Description 双向链表的节点

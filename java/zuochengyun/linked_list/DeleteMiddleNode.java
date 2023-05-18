@@ -1,4 +1,4 @@
-package zuochengyun.linkedlist;
+package zuochengyun.linked_list;
 
 /**
  * @Description 删除链表的中间节点和a/b处的节点

@@ -1,4 +1,4 @@
-package zuochengyun.linkedlist;
+package zuochengyun.linked_list;
 
 /**
  * @Description 打印两个有序链表的公共部分

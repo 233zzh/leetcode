@@ -1,4 +1,4 @@
-package zuochengyun.linkedlist;
+package zuochengyun.linked_list;
 
 /**
  * @Description 在单链表和双链表中删除倒数第K个节点
