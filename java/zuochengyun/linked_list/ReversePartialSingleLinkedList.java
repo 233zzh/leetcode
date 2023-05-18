@@ -9,28 +9,30 @@ package zuochengyun.linked_list;
 public class ReversePartialSingleLinkedList {
 
   public Node reversePartialSingleLinkedList(Node head, int from, int to) {
-    int count = to - from + 1;
-    // to之后的节点（第to+1个节点）
-    Node tail = head;
-    while (to-- > 0) {
-      tail = tail.next;
+    Node temp = head;
+    int len = 0;
+    Node fromPrev = null;
+    Node toLater = null;
+    while (temp != null) {
+      len++;
+      fromPrev = len == from - 1 ? temp : fromPrev;
+      toLater = len == to + 1 ? temp : toLater;
+      temp = temp.next;
     }
-    // from之前的节点（第from-1个节点）
-    Node start = head;
-    while (from-- > 1) {
-      start = start.next;
+    if (from < 1 || to > len || from >= to) {
+      return head;
     }
-    Node prev = tail;
-    Node curr = start;
+
+    Node prev = toLater;
+    Node curr = fromPrev == null ? head : fromPrev.next;
     Node next;
-    while (count-- > 0) {
+    while (curr != toLater) {
       next = curr.next;
       curr.next = prev;
       prev = curr;
       curr = next;
     }
-    if (tail == null) {
-      // 换头节点
+    if (fromPrev == null) {
       return prev;
     } else {
       head.next = prev;
@@ -47,7 +49,7 @@ public class ReversePartialSingleLinkedList {
       temp = temp.next;
     }
     head = head.next;
-    head=new ReversePartialSingleLinkedList().reversePartialSingleLinkedList(head, 2, 4);
+    head = new ReversePartialSingleLinkedList().reversePartialSingleLinkedList(head, 2, 4);
     while (head != null) {
       System.out.print(head.data);
       head = head.next;
@@ -62,7 +64,7 @@ public class ReversePartialSingleLinkedList {
       temp = temp.next;
     }
     head = head.next;
-    head=new ReversePartialSingleLinkedList().reversePartialSingleLinkedList(head, 1, 3);
+    head = new ReversePartialSingleLinkedList().reversePartialSingleLinkedList(head, 1, 3);
     while (head != null) {
       System.out.print(head.data);
       head = head.next;
