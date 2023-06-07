@@ -1,5 +1,11 @@
 package zuochengyun.recursion_dp;
 
+/**
+ * @Description 斐波那契数列 https://leetcode.cn/problems/fibonacci-number/
+ * @Author 爱做梦的鱼
+ * @Blog https://zihao.blog.csdn.net/
+ * @Date 2023/5/17 16:21
+ */
 public class Fibonacci {
 
   //  斐波那契
@@ -7,7 +13,7 @@ public class Fibonacci {
   // O(2^n)
   public int fibonacci(int n) {
     if (n < 1) {
-      return -1;
+      return 0;
     }
     if (n == 1 || n == 2) {
       return 1;
@@ -20,7 +26,7 @@ public class Fibonacci {
   // O(n)
   public int fibonacci1(int n) {
     if (n < 1) {
-      return -1;
+      return 0;
     }
     if (n == 1 || n == 2) {
       return 1;
@@ -40,7 +46,7 @@ public class Fibonacci {
   // 递归
   public int s(int n) {
     if (n < 1) {
-      return -1;
+      return 0;
     }
     if (n == 1 || n == 2) {
       return n;
@@ -52,7 +58,7 @@ public class Fibonacci {
   // 循环
   public int s1(int n) {
     if (n < 1) {
-      return -1;
+      return 0;
     }
     if (n == 1 || n == 2) {
       return n;
@@ -74,7 +80,7 @@ public class Fibonacci {
   // c(1)=1,c(2)=2,c(3)=3
   public int c(int n) {
     if (n < 0) {
-      return -1;
+      return 0;
     }
     if (n == 1 || n == 2 || n == 3) {
       return n;
@@ -88,7 +94,7 @@ public class Fibonacci {
   // c(1)=1,c(2)=2,c(3)=3
   public int c1(int n) {
     if (n < 0) {
-      return -1;
+      return 0;
     }
     if (n == 1 || n == 2 || n == 3) {
       return n;
