@@ -9,6 +9,7 @@ import java.util.Stack;
  * @Date 2023/5/19 17:55
  */
 public class PalindromeLinkedList {
+
   // 快慢指针找到中间位置
   // 把前一半压入栈
   // 然后遍历后一半，和栈中元素进行对比
@@ -21,11 +22,15 @@ public class PalindromeLinkedList {
       slow = slow.next;
       fast = fast.next.next;
     }
-    while (fast != null) {
-      if (fast.data != stack.pop()) {
+    // 总共奇数个节点 ，需要跳过中间节点
+    if (fast != null && fast.next == null) {
+      slow = slow.next;
+    }
+    while (slow != null) {
+      if (slow.data != stack.pop()) {
         return false;
       }
-      fast = fast.next;
+      slow = slow.next;
     }
     return true;
   }
@@ -33,7 +38,7 @@ public class PalindromeLinkedList {
   public static void main(String[] args) {
     Node head = new Node(-1);
     Node temp = head;
-    int[] array = new int[]{1, 2, 1};
+    int[] array = new int[]{1, 2, 2, 1};
     for (int i : array) {
       temp.next = new Node(i);
       temp = temp.next;
@@ -44,7 +49,7 @@ public class PalindromeLinkedList {
 
     head = new Node(-1);
     temp = head;
-    array = new int[]{1, 2, 2, 1};
+    array = new int[]{1, 2, 3, 2, 1};
     for (int i : array) {
       temp.next = new Node(i);
       temp = temp.next;
